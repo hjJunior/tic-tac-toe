@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tic_tac_toe/src/styles/text.dart';
 
 class BrandText extends StatelessWidget {
   BrandText(this.text);
@@ -9,7 +10,7 @@ class BrandText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text.toUpperCase(),
-      style: TextStyle(fontSize: 45, color: Colors.yellow, fontFamily: 'Crackman'),
+      style: AppTextStyle.textBrandStyle,
     );
   }
 }

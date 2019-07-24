@@ -12,8 +12,6 @@ class DialogNewGame extends StatefulWidget {
 }
 
 class _DialogNewGameState extends State<DialogNewGame> {
-
-
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
@@ -66,7 +64,6 @@ class _DialogNewGameState extends State<DialogNewGame> {
 
   void startGame() async {
     final gameId = widget.bloc.game;
-    print(gameId);
 
     await Navigator.of(context).push(
       MaterialPageRoute(builder: (_) => GamePage(gameId, 'X'))

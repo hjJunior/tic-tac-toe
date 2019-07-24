@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tic_tac_toe/src/bloc/game_bloc.dart';
+import 'package:tic_tac_toe/src/styles/colors.dart';
+import 'package:tic_tac_toe/src/styles/text.dart';
 import 'package:tic_tac_toe/src/widgets/board_grid.dart';
 import 'package:tic_tac_toe/src/widgets/brand_text.dart';
 
@@ -13,7 +15,7 @@ class GamePage extends StatelessWidget {
     final bloc = GameBloc(gameId, playerSymbol);
 
     return Scaffold(
-      backgroundColor: Color(0xFF1f1e1f),
+      backgroundColor: AppColors.background,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
@@ -21,9 +23,10 @@ class GamePage extends StatelessWidget {
           StreamBuilder<String>(
             initialData: 'LOADING...',
             stream:  bloc.textStatus,
-            builder: (context, snapshot) {
-              return Text(snapshot.data, style: TextStyle(fontSize: 21, color: Colors.white),);
-            }
+            builder: (context, snapshot) => Text(
+              snapshot.data,
+              style: AppTextStyle.textBody1,
+            ),
           ),
           Container(
               height: 450,
