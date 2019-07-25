@@ -21,7 +21,6 @@ class BoardGrid extends StatelessWidget {
           }
 
           if (!snapshot.hasData) {
-            bloc.boardFirebase.listen(print);
             return Text('No info');
           }
 
@@ -39,9 +38,7 @@ class BoardGrid extends StatelessWidget {
                     mainAxisSpacing: 6
                   ),
                   physics: NeverScrollableScrollPhysics(),
-                  itemBuilder: (_, index) {
-                    return Box(index, bloc, board);
-                  },
+                  itemBuilder: (_, index) => Box(index, bloc, board),
                   itemCount: 9,
                 ),
               ),

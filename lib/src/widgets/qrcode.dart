@@ -8,13 +8,11 @@ class QrCode extends StatelessWidget {
     'https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=$text';
 
   @override
-  Widget build(BuildContext context) {
-    return Stack(
-      alignment: Alignment.center,
-      children: <Widget>[
-        CircularProgressIndicator(),
-        Image.network(qrCodeUrl),
-      ],
-    );
-  }
+  Widget build(BuildContext context) => Stack(
+    alignment: Alignment.center,
+    children: <Widget>[
+      CircularProgressIndicator(),
+      Image.network(qrCodeUrl),
+    ],
+  );
 }

@@ -7,10 +7,8 @@ class BrandText extends StatelessWidget {
   final String text;
 
   @override
-  Widget build(BuildContext context) {
-    return Text(
-      text.toUpperCase(),
-      style: AppTextStyle.textBrandStyle,
-    );
-  }
+  Widget build(BuildContext context) => Text(
+    text.toUpperCase(),
+    style: AppTextStyle.textBrandStyle,
+  );
 }

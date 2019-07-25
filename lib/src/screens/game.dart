@@ -7,6 +7,7 @@ import 'package:tic_tac_toe/src/widgets/brand_text.dart';
 
 class GamePage extends StatelessWidget {
   GamePage(this.gameId, this.playerSymbol);
+
   final String gameId;
   final String playerSymbol;
 

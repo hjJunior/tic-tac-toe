@@ -12,5 +12,8 @@ class AppTextStyle {
     TextStyle(color: AppColors.accentColor);
 
   static TextStyle get textBrandStyle =>
-      TextStyle(fontSize: 41, fontFamily: 'Crackman').merge(textAccentColor);
+    TextStyle(fontSize: 41, fontFamily: 'Crackman').merge(textAccentColor);
+
+  static TextStyle get textMenu =>
+    TextStyle(color: Colors.black);
 }

@@ -13,54 +13,52 @@ class DialogNewGame extends StatefulWidget {
 
 class _DialogNewGameState extends State<DialogNewGame> {
   @override
-  Widget build(BuildContext context) {
-    return AlertDialog(
-      title: Text('New Game',),
-      content: Column(
-        children: <Widget>[
-          SizedBox(height: 10,),
-          StreamBuilder(
-            stream: widget.bloc.gameId,
-            builder: (_, snapshot) {
-              if (snapshot.connectionState == ConnectionState.waiting) {
-                if (!snapshot.hasData) {
-                  widget.bloc.createGame();
-                }
-
-                return Column(
-                  children: <Widget>[
-                    CircularProgressIndicator(),
-                    SizedBox(height: 20,),
-                    Text('Creating new game...',),
-                  ],
-                );
+  Widget build(BuildContext context) => AlertDialog(
+    title: Text('New Game',),
+    content: Column(
+      children: <Widget>[
+        SizedBox(height: 10,),
+        StreamBuilder(
+          stream: widget.bloc.gameId,
+          builder: (_, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              if (!snapshot.hasData) {
+                widget.bloc.createGame();
               }
 
               return Column(
                 children: <Widget>[
-                  Text('Share this code with your friends to play together'),
+                  CircularProgressIndicator(),
                   SizedBox(height: 20,),
-                  QrCode(snapshot.data),
-                  TextFormField(
-                    initialValue: snapshot.data,
-                    enabled: false,
-                    textAlign: TextAlign.center,
-                  ),
-                  SizedBox(height: 20,),
-                  RaisedButton(
-                    onPressed: startGame,
-                    color: Colors.yellow,
-                    child: Text('Continue'),
-                  ),
+                  Text('Creating new game...',),
                 ],
               );
-            },
-          ),
-        ],
-      ),
-      backgroundColor: Colors.white,
-    );
-  }
+            }
+
+            return Column(
+              children: <Widget>[
+                Text('Share this code with your friends to play together'),
+                SizedBox(height: 20,),
+                QrCode(snapshot.data),
+                TextFormField(
+                  initialValue: snapshot.data,
+                  enabled: false,
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(height: 20,),
+                RaisedButton(
+                  onPressed: startGame,
+                  color: Colors.yellow,
+                  child: Text('Continue'),
+                ),
+              ],
+            );
+          },
+        ),
+      ],
+    ),
+    backgroundColor: Colors.white,
+  );
 
   void startGame() async {
     final gameId = widget.bloc.game;
